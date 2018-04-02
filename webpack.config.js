@@ -1,5 +1,6 @@
 const path = require('path')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
+const CopyWebpackPlugin = require('copy-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const CleanWebpackPlugin = require('clean-webpack-plugin')
 
@@ -33,14 +34,6 @@ const config = {
                 exclude: '/node_modules/'
             },
             {
-                //plugin to extract text that is transformed by any specified loaders
-                use: ExtractTextPlugin.extract({
-                    fallback: 'style-loader',
-                    use: 'css-loader'
-                }),
-                test: /\.css$/
-            },
-            {
                 use: [
                     {
                         loader: 'url-loader',
@@ -66,11 +59,11 @@ const config = {
     },
     plugins: [
         new HtmlWebpackPlugin({
-            title: 'My Webpack Demo App',
+            title: 'My ES6 Demo App',
             template: 'src/index.html'
         }),
-        new ExtractTextPlugin('style-[chunkhash].css'), // tells ExtractText lib to find files transformed by its loader, and save into style.css
-        new CleanWebpackPlugin(['dist/*.*']) //clean dist directory on builds
+        new CleanWebpackPlugin(['dist/*.*']), //clean dist directory on builds,
+        new CopyWebpackPlugin([{from: 'src/style.css', to: 'style.css'}])
     ],
     devtool: 'source-map'
 };

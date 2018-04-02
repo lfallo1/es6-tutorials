@@ -4,8 +4,8 @@
   "description": "",
   "main": "webpack.config.js",
   "scripts": {
-    "start": "babel-node src/lesson2-modules-classes/classes-driver.js",
-    "start-debug": "babel-node %NODE_DEBUG_OPTION% src/lesson2-modules-classes/classes-driver.js",
+    "start": "babel-node src/lesson9-proxy-api/script.js",
+    "start-debug": "babel-node %NODE_DEBUG_OPTION% src/lesson9-proxy-api/script.js",
     "dev": "webpack-dev-server",
     "build": "webpack --watch"
   },
@@ -20,6 +20,7 @@
     "babel-preset-env": "^1.6.1",
     "babel-preset-es2015": "^6.24.1",
     "clean-webpack-plugin": "^0.1.19",
+    "copy-webpack-plugin": "^4.5.1",
     "css-loader": "^0.28.11",
     "extract-text-webpack-plugin": "4.0.0-beta.0",
     "file-loader": "^1.1.11",
